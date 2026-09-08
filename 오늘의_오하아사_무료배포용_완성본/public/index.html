@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#ff9f68">
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="/style.css">
+
+  <title>오늘의 오하아사</title>
+</head>
+
+<body>
+
+<header class="header">
+
+  <div>
+    <div class="logo">
+      🌅 오늘의 오하아사
+    </div>
+
+    <div id="today"></div>
+  </div>
+
+  <button id="refreshButton" class="icon-button">
+    🔄
+  </button>
+
+</header>
+
+
+<main>
+
+  <!-- 알림 안내 -->
+
+  <section
+    id="notificationBanner"
+    class="notification-banner hidden"
+  >
+
+    <div class="notification-text">
+
+      <strong>
+        🌅 매일 아침 오하아사 운세를 받아볼까요?
+      </strong>
+
+      <p>
+        오늘의 운세가 업데이트되면 알려드려요.
+      </p>
+
+    </div>
+
+    <button id="enableNotification">
+      알림 허용
+    </button>
+
+  </section>
+
+
+  <!-- 나의 별자리 -->
+
+  <section class="my-fortune">
+
+    <div class="section-title">
+      ⭐ 나의 별자리
+    </div>
+
+    <div id="myFortuneContent">
+      별자리를 설정해주세요.
+    </div>
+
+    <button
+      id="selectZodiac"
+      class="primary"
+    >
+      별자리 설정
+    </button>
+
+  </section>
+
+
+  <!-- 오늘의 랭킹 -->
+
+  <section>
+
+    <div class="section-title">
+      ✨ 今日の星占いランキング
+    </div>
+
+    <div
+      id="updateTime"
+      class="update-time"
+    ></div>
+
+    <div id="ranking">
+
+      <div class="loading">
+        운세를 불러오는 중... 🌅
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- 하단 메뉴 -->
+
+<nav class="bottom-nav">
+
+  <button data-page="home">
+    🏠
+    <span>오늘</span>
+  </button>
+
+  <button data-page="history">
+    📅
+    <span>지난 운세</span>
+  </button>
+
+  <button data-page="settings">
+    ⚙️
+    <span>설정</span>
+  </button>
+
+</nav>
+
+
+<!-- 설정창 -->
+
+<div
+  id="settingsModal"
+  class="modal hidden"
+>
+
+  <div class="modal-content">
+
+    <button
+      id="closeSettings"
+      class="close"
+    >
+      ✕
+    </button>
+
+    <h2>
+      ⚙️ 설정
+    </h2>
+
+    <label>
+      나의 별자리
+      <select id="zodiacSelect">
+        <option value="">선택해주세요</option>
+        <option value="aries">♈ 양자리</option>
+        <option value="taurus">♉ 황소자리</option>
+        <option value="gemini">♊ 쌍둥이자리</option>
+        <option value="cancer">♋ 게자리</option>
+        <option value="leo">♌ 사자자리</option>
+        <option value="virgo">♍ 처녀자리</option>
+        <option value="libra">♎ 천칭자리</option>
+        <option value="scorpio">♏ 전갈자리</option>
+        <option value="sagittarius">♐ 사수자리</option>
+        <option value="capricorn">♑ 염소자리</option>
+        <option value="aquarius">♒ 물병자리</option>
+        <option value="pisces">♓ 물고기자리</option>
+      </select>
+    </label>
+
+
+    <label class="setting-row">
+
+      <span>
+        🔔 알림
+      </span>
+
+      <input
+        id="notificationToggle"
+        type="checkbox"
+      >
+
+    </label>
+
+
+    <label>
+
+      알림 시간
+
+      <select id="notificationTime">
+
+        <option value="06:30">
+          오전 6:30
+        </option>
+
+        <option value="07:00">
+          오전 7:00
+        </option>
+
+        <option value="07:30">
+          오전 7:30
+        </option>
+
+        <option value="08:00" selected>
+          오전 8:00
+        </option>
+
+      </select>
+
+    </label>
+
+
+    <label>
+
+      직접 설정
+
+      <input
+        id="customTime"
+        type="time"
+      >
+
+    </label>
+
+
+    <button
+      id="saveSettings"
+      class="primary"
+    >
+      저장
+    </button>
+
+  </div>
+
+</div>
+
+
+<script src="/script.js"></script>
+
+</body>
+</html>
